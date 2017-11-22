@@ -1,0 +1,9 @@
+*.pyc
+local.py
+*./media/.*
+*.__pycache__.*
+*.db
+*.sqlite*
+.idea/*
+.DS_Store
+*idea*
