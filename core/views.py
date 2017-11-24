@@ -35,7 +35,7 @@ from core.forms import RegistrationFormBasic, RegistrationFormVerify
 # def home(request):
 #     return render(request, 'home.html', {})
 
-class SignUpViewBasic(View):
+class SignUpViewBasic(FormView):
     """docstring for SignUpView"""
     # def __init__(self, arg):
     #     super(SignUpView, self).__init__()
@@ -52,7 +52,7 @@ class SignUpViewBasic(View):
         return HttpResponseRedirect(reverse_lazy("home"))
         # pass
 
-class SignUpViewVerify(View):
+class SignUpViewVerify(FormView):
     """docstring for SignUpView"""
     # def __init__(self, arg):
     #     super(SignUpView, self).__init__()
