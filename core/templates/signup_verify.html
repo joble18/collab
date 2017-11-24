@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block content %}
+ 
+  <form method="post">
+
+   <h3>Verify your email</h3>
+	    {{ form.as_p }}
+	    <button type="button" id="send_verif_code">Verify</button>
+
+  </form>
+{% endblock %}

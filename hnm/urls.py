@@ -6,7 +6,7 @@ Examples:
 Function views
     1. Add an import:  from my_app import views
     2. Add a URL to urlpatterns:  url(r'^$', views.home, name='home')
-Class-based views
+Class-based core_views
     1. Add an import:  from other_app.views import Home
     2. Add a URL to urlpatterns:  url(r'^$', Home.as_view(), name='home')
 Including another URLconf
@@ -15,16 +15,18 @@ Including another URLconf
 """
 from django.conf.urls import include, url
 from django.contrib import admin
-from people import views as core_views
+from core import views as core_views
 from django.contrib.auth import views as auth_views
 
 
+
+
 urlpatterns = [
-    url(r'^people/', include('people.urls')),
     url(r'^admin/', admin.site.urls),
-    # url(r'^$', core_views.home, name='home'),
-    url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
-    url(r'^logout/$', auth_views.logout, {'next_page': 'login'}, name='logout'),
-    url(r'^signup/$', core_views.signup, name='signup'),
+    url(r'^', include("core.urls"), name="core"),
+    
+    # url(r'^login/$', auth_views.login, {'template_name': 'login.html'}, name='login'),
+    # url(r'^logout/$', auth_views.logout, {'next_page': 'login'}, name='logout'),
+    # url(r'^signup/$', core_views.signup, name='signup'),
 ]
 

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <h2>Sign up</h2>
+  <!-- <form method="post"> -->
+   <div id="step_1">
+   <h3>Create your account</h3>
+	    {{ form.as_p }}
+	    <button type="button" id="send_verif_code">Send verification code</button>
+    </div>
+
+    <div id="step_2">
+    <h3>Verify your email</h3>
+    	<button id="">Verify</button>
+    </div>
+
+    <div id="step_3">
+    	<h3>Hello User</h3>
+    	<button>Next</button>
+    </div>
+
+    <div id="step_4">
+    	<h3>Tell about your company</h3>
+    	<button>Next</button>
+    </div>
+
+    <div id="step_5">
+    	<h3>Finishing</h3>
+    	<button>Take me there</button>
+    </div>
+  <!-- </form> -->
+{% endblock %}
