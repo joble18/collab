@@ -34,24 +34,47 @@ class RegistrationFormBasic(forms.ModelForm):
       # exclude = ('password2',)
       fields = ( 'first_name', 'last_name', 'email',)
 
-  def save(self, commit=True):
-	  user = super(RegistrationForm, self).save(commit=False)
-	  user.set_password(self.cleaned_data["password1"])
-	  if commit:
-	  	user.save()
-	  return user
+  # def save(self, commit=True):
+	 #  user = super(RegistrationFormBasic, self).save(commit=False)
+	 #  # user.set_password(self.cleaned_data["password1"])
+	 #  if commit:
+	 #  	user.save()
+	 #  return user
 
 class RegistrationFormVerify(forms.Form):
 
-	verify_code = forms.RegexField( regex=r'^[A-Za-z]*$', widget=forms.TextInput(
+	verify_code = forms.RegexField( regex=r'^[0-9]*$', widget=forms.TextInput(
       attrs={'required': True, 'max_length': 30, 'render_value': False,
              'placeholder': 'Enter verification code'} ), label=("Verification code"), error_messages={
       'invalid': ("This value must contain only letters")} )
 		
 
-class RegistrationFormPassword(forms.Form):
+class RegistrationFormPassword(forms.ModelForm):
   
-	password1 = forms.CharField(
+  password1 = forms.CharField(
       widget=forms.PasswordInput(attrs={'required': True, 'max_length': 30, 'render_value': False,
       'placeholder': 'Password'}),
       label=("Password"))
+  class Meta:
+      model = User
+      # exclude = ('password2',)
+      fields = ( 'password1',)
+
+  # def save(self, commit=True):
+	 #  user = super(RegistrationFormPassword, self).save(commit=False)
+	 #  user.set_password(self.cleaned_data["password1"])
+	 #  if commit:
+	 #  	user.save()
+	 #  return user
+
+class SetupCompanyProfile(forms.Form):
+  
+	company_name = forms.RegexField( regex=r'^[A-Za-z]*$', widget=forms.TextInput(
+      attrs={'required': True, 'max_length': 30, 'render_value': False,
+             'placeholder': 'Company  name'} ), label=("Company name"), error_messages={
+      'invalid': ("This value must contain only letters")} )
+
+	job_title = forms.RegexField( regex=r'^[A-Za-z]*$', widget=forms.TextInput(
+      attrs={'required': False, 'max_length': 30, 'render_value': False,
+             'placeholder': 'Job Title'} ), label=("Job title"), error_messages={
+      'invalid': ("This value must contain only letters")} )
