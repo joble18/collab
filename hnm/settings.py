@@ -34,7 +34,7 @@ STATICFILES_DIRS = (os.path.join(PROJECT_DIR, 'staticfiles'),)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['glacial-gorge-84862.herokuapp.com','127.0.0.1']
 
 
 # Application definition
