@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+{% load tz %}
+{% get_current_timezone as TIME_ZONE %}
+  <form method="post" enctype="multipart/form-data">
+	{% csrf_token %}
+   <h3>Finalize Company Profile</h3>
+	    {{ form.portal_url }}
+
+    	{{ form.logo }}
+	    <button type="submit">Next</button>
+
+  </form>
+
+
+{% endblock %}
