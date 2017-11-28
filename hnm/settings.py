@@ -22,6 +22,15 @@ PROJECT_DIR = os.path.abspath(os.path.join(BASE_DIR, os.path.pardir))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '6b)$pwgn49^fv49&0w16p32yuz78lx^^3s7aao2ugktkhkd39)'
 
+# Media settings
+MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media').replace('\\', '/')
+MEDIA_URL = '/media/'
+
+# Static settings
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
+STATICFILES_DIRS = (os.path.join(PROJECT_DIR, 'staticfiles'),)
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
