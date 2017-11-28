@@ -2,6 +2,8 @@
 # from django.http import HttpResponse
 import pytz
 from random import randint
+from django.core.mail import EmailMessage
+from django.conf import settings
 from django.contrib.auth import login, authenticate
 from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render, redirect
@@ -56,7 +58,15 @@ class SignUpViewBasic(FormView):
         self.request.session['first_name'] = form.cleaned_data['first_name']
         self.request.session['last_name'] = form.cleaned_data['last_name']
         # user_object.save()
-        self.request.session['otp'] = randint(100, 999)
+        body = randint(100, 999)
+        self.request.session['otp'] = body
+        email = EmailMessage('Activate Your Account', "Your verification code is: "+str(body), settings.DEFAULT_FROM_EMAIL, (form.cleaned_data['email'],))
+        email.content_subtype = 'html'
+
+        try:
+            email.send()
+        except Exception as e:
+            print(e)
         print('>>>>>>>>>>>>OTP' + str(self.request.session['otp']))
         return HttpResponseRedirect(reverse_lazy("verifyemail"))
         # pass
@@ -159,3 +169,4 @@ class SetupCompanyProfileFinalView(FormView):
 class LoginUserView(LoginView):
     authentication_form = LoginForm
     template_name = 'login.html'
+    success_url = reverse_lazy("home")
