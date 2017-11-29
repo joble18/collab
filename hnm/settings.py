@@ -12,9 +12,19 @@ https://docs.djangoproject.com/en/1.11/ref/settings/
 
 import os
 
+
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 PROJECT_DIR = os.path.abspath(os.path.join(BASE_DIR, os.path.pardir))
+
+# Media settings
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media').replace('\\', '/')
+MEDIA_URL = '/media/'
+
+# Static settings
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static/')
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'staticfiles'),)
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.11/howto/deployment/checklist/
@@ -22,14 +32,7 @@ PROJECT_DIR = os.path.abspath(os.path.join(BASE_DIR, os.path.pardir))
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = '6b)$pwgn49^fv49&0w16p32yuz78lx^^3s7aao2ugktkhkd39)'
 
-# Media settings
-MEDIA_ROOT = os.path.join(PROJECT_DIR, 'media').replace('\\', '/')
-MEDIA_URL = '/media/'
 
-# Static settings
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(PROJECT_DIR, 'static')
-STATICFILES_DIRS = (os.path.join(PROJECT_DIR, 'staticfiles'),)
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -46,7 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'core',
+    'apps.core',
 ]
 
 MIDDLEWARE = [

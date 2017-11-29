@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block includes %}
+<style type="text/css">
+	  body > .grid {
+	    height: 100%;
+	  }
+	  .column {
+	    max-width: 450px;
+	  }
+</style>
+{% endblock %}
+
+{% block content %}
+
+<div class="ui middle aligned center aligned grid">
+	<div class="column">
+		<form class="ui large form">
+			<div class="ui stacked segment">
+			  <div class="field">
+			    <label>{{ form.first_name.label }}</label>
+			    {{ form.first_name }}
+			  </div>
+			  <div class="field">
+			    <label>{{ form.last_name.label }}</label>
+			    {{ form.last_name }}
+			  </div>
+			  <div class="field">
+					<label>{{ form.email.label }}</label>
+			    {{ form.email }}
+			  </div>
+			  <div class="field">
+		  		<button class="ui fluid large blue submit button" type="submit">Send Verification Code</button>
+		  	</div>
+		  </div>
+		</form>
+	</div>
+</div>
+
+{% endblock %}

@@ -14,7 +14,7 @@ from django.views.generic import View, CreateView, TemplateView, FormView
 from django.contrib.auth.views import LoginView, PasswordResetView
 from django.contrib.auth.models import User
 
-from core.forms import RegistrationFormBasic, RegistrationFormVerify, RegistrationFormPassword,SetupCompanyProfile, SetupCompanyProfileFinal, LoginForm
+from apps.core.forms import RegistrationFormBasic, RegistrationFormVerify, RegistrationFormPassword,SetupCompanyProfile, SetupCompanyProfileFinal, LoginForm
 
 
 # Create your views here.

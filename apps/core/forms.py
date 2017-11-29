@@ -2,23 +2,23 @@ from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm, PasswordResetForm
 from django.contrib.auth.models import User
 
-from core.models import CompanyProfile
+from apps.core.models import CompanyProfile
 
 class RegistrationFormBasic(forms.ModelForm):
 	first_name = forms.RegexField( regex=r'^[A-Za-z]*$', widget=forms.TextInput(
       attrs={'required': True, 'max_length': 30, 'render_value': False,
-             'placeholder': 'First Name'} ), label=("First Name"), error_messages={
+             'placeholder': 'e.g. John'} ), label=("First name"), error_messages={
       'invalid': ("This value must contain only letters")} )
   
 	last_name = forms.RegexField( regex=r'^[A-Za-z]*$', widget=forms.TextInput(
       attrs={'required': True, 'max_length': 30, 'render_value': False,
-             'placeholder': 'Last Name'} ), label=("Last Name"), error_messages={
+             'placeholder': 'e.g. Doe'} ), label=("Last name"), error_messages={
       'invalid': ("This value must contain only letters")} )
   
 	email = forms.EmailField(widget=forms.TextInput(
       attrs={'required': True, 'max_length': 30, 'render_value': False,
-             'unique': True, 'placeholder': 'Email address'}),
-      label=("Email address"))
+             'unique': True, 'placeholder': 'e.g. johndoe@teamawesome.com'}),
+      label=("Email"))
   
   # password2 = forms.CharField(
   #     widget=forms.PasswordInput(attrs={'required': True, 'max_length': 30, 'render_value': False,
