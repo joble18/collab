@@ -95,7 +95,14 @@ class SignUpViewPassword(CreateView):
     form_class = RegistrationFormPassword
     template_name = 'signup_password.html'
     # success_url = reverse_lazy("home")
+    
 
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super(SignUpViewPassword, self).get_context_data(**kwargs)
+        # Add in a QuerySet of all the books
+        context['user'] = str(self.request.session['first_name']) + " " + str(self.request.session['last_name'])
+        return context
     def form_valid(self, form):
         # form.save(commit=False)
         # form.set_password(setpasswordlf.cleaned_data["password1"])

@@ -1,12 +1,42 @@
 {% extends 'base.html' %}
 
-{% block content %}
- 
-  <form method="post">
-  {% csrf_token %}
-   <h3>Verify your email</h3>
-	    {{ form.as_p }}
-	    <button type="submit" id="send_verif_code">Verify</button>
+{% block includes %}
+<style type="text/css">
+html, body {
+  height:100%;
+  /* width: 100%; */
+}
+body {
+  display:flex;
+  align-items:center;
+}
+</style>
+{% endblock %}
 
-  </form>
+{% block content %}
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-5">
+        <div class="row justify-content-center">
+            <h1 class="greyTextColor"><i class="users icon"></i> Collab</h1>
+        </div>
+        <h2>Verify email</h2>
+        <p>We've sent you a verification code to your email.</p>
+        <form class="ui large form" method="post">
+          {% csrf_token %}
+          <div class="field">
+            <label>{{ form.verify_code.label }}</label>
+            {{ form.verify_code }}
+          </div>
+          <div class="field">
+              <button class="ui fluid large blue submit button" type="submit">Verify</button>
+          </div>
+        </form>
+        <div class="row justify-content-center mt-5">
+          <small>Step 2 of 4</small>
+        <!-- {{ form.errors }} -->
+        </div>
+    </div>
+  </div>
+</div>
 {% endblock %}

@@ -47,7 +47,7 @@ class RegistrationFormVerify(forms.Form):
 
 	verify_code = forms.RegexField( regex=r'^[0-9]*$', widget=forms.TextInput(
 		attrs={'required': True, 'max_length': 30, 'render_value': False,
-             'placeholder': 'Enter verification code'} ), label=("Verification code"), error_messages={
+             'placeholder': 'e.g. ****'} ), label=("Enter verification code"), error_messages={
 		'invalid': ("This value must contain only letters")} )
 		
 
@@ -55,8 +55,8 @@ class RegistrationFormPassword(forms.ModelForm):
   
 	password1 = forms.CharField(
 		widget=forms.PasswordInput(attrs={'required': True, 'max_length': 30, 'render_value': False,
-      'placeholder': 'Password'}),
-      label=("Password"))
+      'placeholder': 'e.g. ********'}),
+      label=("Choose a password"))
 	class Meta:
 		model = User
       # exclude = ('password2',)
@@ -73,12 +73,12 @@ class SetupCompanyProfile(forms.Form):
   
 	company_name = forms.RegexField( regex=r'^[A-Za-z ]*$', widget=forms.TextInput(
 		attrs={'required': True, 'max_length': 30, 'render_value': False,
-             'placeholder': 'Company  name'} ), label=("Company name"), error_messages={
+             'placeholder': 'e.g. Team Awesome'} ), label=("Company name"), error_messages={
       'invalid': ("This value must contain only letters")} )
 
 	job_title = forms.RegexField( regex=r'^[A-Za-z ]*$', widget=forms.TextInput(
 		attrs={'required': False, 'max_length': 30, 'render_value': False,
-             'placeholder': 'Job Title'} ), label=("Job title"), error_messages={
+             'placeholder': 'e.g. CEO'} ), label=("Your job title"), error_messages={
       'invalid': ("This value must contain only letters")} )
 
 	class Meta:
@@ -91,7 +91,7 @@ class SetupCompanyProfileFinal(forms.ModelForm):
   
 	portal_url = forms.RegexField( regex=r'^[A-Za-z]*$', widget=forms.TextInput(
 		attrs={'required': True, 'max_length': 30, 'render_value': False,
-             'placeholder': 'Portal URL'} ), label=("Portal URL"), error_messages={
+             'placeholder': 'e.g. awesometeam'} ), label=("Choose portal url"), error_messages={
       'invalid': ("This value must contain only letters")} )
 
 	def check_portal(self):
