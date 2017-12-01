@@ -12,6 +12,4 @@ staticfiles/semantic/src
 staticfiles/semantic/tasks
 staticfiles/semantic/*.js
 staticfiles/semantic/*.json
-staticfiles/semantic/dist/components
-staticfiles/semantic/dist/themes
 
