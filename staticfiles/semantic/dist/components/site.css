@@ -47,7 +47,7 @@ h5 {
   font-family: 'Roboto', 'Helvetica Neue', Arial, Helvetica, sans-serif;
   line-height: 1.28571429em;
   margin: calc(2rem -  0.14285714em ) 0em 1rem;
-  font-weight: bold;
+  font-weight: 500;
   padding: 0em;
 }
 h1 {
@@ -55,7 +55,7 @@ h1 {
   font-size: 2rem;
 }
 h2 {
-  font-size: 1.71428571rem;
+  font-size: 1.85714286rem;
 }
 h3 {
   font-size: 1.28571429rem;
@@ -201,6 +201,12 @@ body .ui.inverted::-webkit-scrollbar-thumb:hover {
          Site Overrides
 *******************************/
 
-
-/*---  Colors  ---*/
-
+.logo {
+  font-size: 3.28571429rem !important;
+  font-weight: bold !important;
+  color: #21298A !important;
+}
+.logo-icon {
+  font-size: 2rem !important;
+  color: #21298A;
+}
