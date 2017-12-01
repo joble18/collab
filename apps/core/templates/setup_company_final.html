@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block includes %}
+<style type="text/css">
+html, body {
+  height:100%;
+  /* width: 100%; */
+}
+body {
+  display:flex;
+  align-items:center;
+}
+</style>
+{% endblock %}
+
+{% block content %}
+
+{% load tz %}
+{% get_current_timezone as TIME_ZONE %}
+
+
+
+<div class="container">
+	<div class="row justify-content-center">
+		<div class="col-md-5">
+			<div class="row justify-content-center">
+				<h1 class="greyTextColor"><i class="users icon"></i> Collab</h1>
+			</div>
+			<h2>Finishing</h2>
+			<form class="ui large form" method="post" enctype="multipart/form-data">
+				{% csrf_token %}
+				<div class="field">
+					<label>{{ form.portal_url.label }}</label>
+					<div class="ui right labeled input">
+						{{ form.portal_url }}
+						<div class="ui basic label">
+							.collab.com
+						</div>
+					</div>
+				</div>
+				<div class="field">
+					<label>Company logo</label>
+					<div class="ui center aligned segment mt-1">
+						<label for="id_logo" class="ui icon">
+							<i class="file icon"></i>
+							Choose file</label>
+						<input type="file" name="logo" id="id_logo" style="display:none">
+					</div>
+				</div>
+				<div class="field">
+					<button class="ui fluid large blue submit button" type="submit">Take me there	</button>
+				</div>
+			</form>
+			<div class="row justify-content-center mt-5">
+				<small>Step 4 of 4</small>
+				<!-- {{ form.errors }} -->
+			</div>
+		</div>
+	</div>
+</div>
+{% endblock %}

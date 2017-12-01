@@ -1,0 +1,17 @@
+*.pyc
+local.py
+*./media/.*
+*.__pycache__.*
+*.db
+*.sqlite*
+.idea/*
+.DS_Store
+*idea*
+logo/
+staticfiles/semantic/src
+staticfiles/semantic/tasks
+staticfiles/semantic/*.js
+staticfiles/semantic/*.json
+staticfiles/semantic/dist/components
+staticfiles/semantic/dist/themes
+
